@@ -4,13 +4,13 @@
 CREATE TABLE `user_profile_roles` (
     `user_id` UUID NOT NULL,
     `company_id` UUID NOT NULL,
-    `company_manager` BOOLEAN,
-    `consumer` BOOLEAN,
-    `company_claim_manager` BOOLEAN,
-    `consumer_claim_manager` BOOLEAN,
-    `company_setting_manager` BOOLEAN,
-    `company_report_manager` BOOLEAN,
-
+    `role` ENUM (
+        'CONSUMER',
+        'COMPANY_CLAIM_MANAGER',
+        'CONSUMER_CLAIM_MANAGER',
+        'COMPANY_SETTING_MANAGER',
+        'COMPANY_REPORT_MANAGER'
+    ),
     FOREIGN KEY (`user_id`)
     -- comment: if you're getting syntax error on an IDE on `users` table name,
     -- comment: ignore it, its due to the fact that the definition is in another file.
